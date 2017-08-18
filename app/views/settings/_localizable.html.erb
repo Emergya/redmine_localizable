@@ -52,7 +52,8 @@
                 {:name => "tracker", :objects => Tracker.all, :label => :label_tracker_plural},
                 {:name => "issue_status", :objects => IssueStatus.all, :label => :label_issue_status_plural},
                 {:name => "custom_field", :objects => CustomField.all, :label => :label_custom_field_plural},
-                {:name => "enumeration", :objects => Enumeration.where("project_id IS NULL").sort{|a, b| a.type.downcase <=> b.type.downcase}, :label => :label_enumerations}] -%>
+                {:name => "enumeration", :objects => Enumeration.where("project_id IS NULL").sort{|a, b| a.type.downcase <=> b.type.downcase}, :label => :label_enumerations}, 
+                {:name => "custom_field_enumeration", :objects => CustomFieldEnumeration.all, :label => :label_custom_field_enumeration_plural}] -%>
 <%- type_labels = {"Issue" => :label_issue_plural,
                    "TimeEntry" => :label_time_entry_plural,
                    "Project" => :label_project_plural,
@@ -61,7 +62,8 @@
                    "Group" => :label_group_plural,
                    "TimeEntryActivity" => :enumeration_activities,
                    "IssuePriority" => :enumeration_issue_priorities,
-                   "DocumentCategory" => :enumeration_doc_categories} -%>
+                   "DocumentCategory" => :enumeration_doc_categories,
+                   "CustomFieldEnumeration" => :label_custom_field_enumeration_plural} -%>
 
 <%- elements.each do |element| -%>
 <%- unless element[:objects].empty? -%>

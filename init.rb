@@ -20,6 +20,7 @@ Tracker.send(:include, TrackerPatch)
 IssueStatus.send(:include, IssueStatusPatch)
 CustomField.send(:include, CustomFieldPatch)
 Enumeration.send(:include, EnumerationPatch)
+CustomFieldEnumeration.send(:include, CustomFieldEnumerationPatch)
 
 Redmine::Plugin.register :redmine_localizable do
   name "Localizable plugin"
